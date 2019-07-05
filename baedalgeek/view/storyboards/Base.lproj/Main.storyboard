@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eOr-ye-UJ6">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Tta-wW-dGx">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="eOr-ye-UJ6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3gu-eK-Ryd">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="t28-MA-x5d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLB-rc-0id" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-712" y="139"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="baedalgeek" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qot-wH-2iZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRe-MD-7g1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="SJh-mV-ER1">
+                                        <rect key="frame" x="111.5" y="151.5" width="191" height="188"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="191" id="8dg-zr-aY6"/>
+                                            <constraint firstAttribute="height" constant="188" id="vsg-dy-hxq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2019 CLOUDSTONE All rigth reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95m-GL-YEJ">
+                                        <rect key="frame" x="96" y="688" width="222.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="SJh-mV-ER1" firstAttribute="centerX" secondItem="BRe-MD-7g1" secondAttribute="centerX" id="FAk-JO-AeR"/>
+                                    <constraint firstItem="95m-GL-YEJ" firstAttribute="centerY" secondItem="BRe-MD-7g1" secondAttribute="bottom" multiplier="0.85" id="bbR-Vw-e1I"/>
+                                    <constraint firstItem="95m-GL-YEJ" firstAttribute="centerX" secondItem="BRe-MD-7g1" secondAttribute="centerX" id="iwl-VW-OZG"/>
+                                    <constraint firstItem="SJh-mV-ER1" firstAttribute="centerY" secondItem="BRe-MD-7g1" secondAttribute="bottom" multiplier="0.3" id="ruQ-E8-Rte"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qot-wH-2iZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FCs-eX-V1t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BRe-MD-7g1" secondAttribute="trailing" id="P9P-X2-rOq"/>
+                            <constraint firstItem="BRe-MD-7g1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="miu-4t-QIp"/>
+                            <constraint firstItem="Qot-wH-2iZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rVH-62-wzq"/>
+                            <constraint firstItem="Qot-wH-2iZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sw2-QH-0d0"/>
+                            <constraint firstItem="BRe-MD-7g1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uyX-Uc-itU"/>
+                            <constraint firstItem="Qot-wH-2iZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vfN-GV-aQv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BRe-MD-7g1" secondAttribute="bottom" id="w3T-oa-GT7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="W6p-Lz-Ho1"/>
+                    <connections>
+                        <outlet property="mainWebview" destination="Qot-wH-2iZ" id="xTj-Kq-Zh1"/>
+                        <outlet property="splashView" destination="BRe-MD-7g1" id="Ovp-7A-9pw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchImage" width="191" height="188"/>
+    </resources>
+</document>

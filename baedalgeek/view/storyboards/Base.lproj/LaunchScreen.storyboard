@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgj-tP-XaQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="gIK-nh-Xbc">
+                                        <rect key="frame" x="111.5" y="151.5" width="191" height="188"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="188" id="Lez-na-sOX"/>
+                                            <constraint firstAttribute="width" constant="191" id="fNm-cB-AaN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2019 CLOUDSTONE All rigth reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVo-gJ-1IX">
+                                        <rect key="frame" x="96" y="688" width="222.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="jVo-gJ-1IX" firstAttribute="centerY" secondItem="jgj-tP-XaQ" secondAttribute="bottom" multiplier="0.85" id="Qy3-Iq-7R0"/>
+                                    <constraint firstItem="gIK-nh-Xbc" firstAttribute="centerY" secondItem="jgj-tP-XaQ" secondAttribute="bottom" multiplier="0.3" id="UHd-HK-aiT"/>
+                                    <constraint firstItem="gIK-nh-Xbc" firstAttribute="centerX" secondItem="jgj-tP-XaQ" secondAttribute="centerX" id="Zd7-ao-5EM"/>
+                                    <constraint firstItem="jVo-gJ-1IX" firstAttribute="centerX" secondItem="jgj-tP-XaQ" secondAttribute="centerX" id="nP0-Vb-fGX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jgj-tP-XaQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="SSy-Dd-dMF"/>
+                            <constraint firstItem="jgj-tP-XaQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hy8-Na-7Yl"/>
+                            <constraint firstItem="jgj-tP-XaQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kGs-PP-aCI"/>
+                            <constraint firstItem="jgj-tP-XaQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="z8c-gD-30W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchImage" width="191" height="188"/>
+    </resources>
+</document>
