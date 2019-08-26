@@ -9,14 +9,15 @@
 import WebKit
 
 class WKWebviewControl: NSObject, WKUIDelegate, WKNavigationDelegate, appFunctions {
+    var callerViewController: UIViewController!
     var webView: WKWebView!
-    var appFuncs: appFunctions!
     var pageLoadedFirst: Bool = true
     var lastRequest:URLRequest?
+    var createWebView: WKWebView?
     
-    init(webviewObj: WKWebView) {
+    init(_ caller: UIViewController, webviewObj: WKWebView) {
         super.init()
-        self.appFuncs = self
+        self.callerViewController = caller;
         self.webView = webviewObj
         self.webView.configuration.websiteDataStore = WKWebsiteDataStore.default()
         self.webView.configuration.processPool = GlobalData.processPool
@@ -25,11 +26,11 @@ class WKWebviewControl: NSObject, WKUIDelegate, WKNavigationDelegate, appFunctio
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
         
-        self.loadWebView(GlobalData.startPage)
+        self.loadWebView(self.webView, pageUrl: GlobalData.startPage)
     }
     
-    func loadWebView(_ pageUrl: String) {
-        self.webView.load(URLRequest(url: URL(string: pageUrl)!))
+    func loadWebView(_ webviewObj: WKWebView, pageUrl: String) {
+        webviewObj.load(URLRequest(url: URL(string: pageUrl)!))
     }
     
     //============================================WKWebViewDelegate============================================/
@@ -103,6 +104,36 @@ class WKWebviewControl: NSObject, WKUIDelegate, WKNavigationDelegate, appFunctio
             decisionHandler(.cancel)
         default:
             decisionHandler(.allow)
+        }
+    }
+    
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        let frame = UIScreen.main.bounds
+        
+        //파라미터로 받은 configuration
+        createWebView = WKWebView(frame: frame, configuration: configuration)
+        
+        //오토레이아웃 처리
+        createWebView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        createWebView?.navigationDelegate = self
+        createWebView?.uiDelegate = self
+        
+        
+        self.callerViewController.view.addSubview(createWebView!)
+        
+        return createWebView!
+        
+        /* 현재 창에서 열고 싶은 경우
+         self.webView.load(navigationAction.request)
+         return nil
+         */
+    }
+    
+    func webViewDidClose(_ webView: WKWebView) {
+        if webView == createWebView {
+            createWebView?.removeFromSuperview()
+            createWebView = nil
         }
     }
 }

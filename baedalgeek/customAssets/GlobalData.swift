@@ -11,7 +11,7 @@ import Reachability
 
 struct GlobalData {
     // 초기 홈페이지.
-    static var startPage                    = "https://www.baedalgeek-order.tk/orderer/"
+    static var startPage                    = "https://m.baedalgeek.com/"
     // 디바이스정보
     static var deviceInfo = DeviceInfo()
     

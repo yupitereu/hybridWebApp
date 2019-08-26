@@ -18,7 +18,7 @@ class StartViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.webViewControl = WKWebviewControl(webviewObj: self.mainWebview)
+        self.webViewControl = WKWebviewControl(self, webviewObj: self.mainWebview)
         // Do any additional setup after loading the view.
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
             self.splashView.isHidden = true
