@@ -30,8 +30,8 @@ struct Coord {
 
 
 struct DeviceInfo {
-    var UUID = ""
-    var SYSTEM_VERSION = ""
-    var TOKEN_ID = ""
-    var APP_VERSION = ""
+    var uuid = ""
+    var systemVer = ""
+    var tokenID = ""
+    var appVer = ""
 }

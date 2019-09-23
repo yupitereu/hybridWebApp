@@ -21,10 +21,19 @@ class WKWebviewControl: NSObject, WKUIDelegate, WKNavigationDelegate, appFunctio
         self.webView = webviewObj
         self.webView.configuration.websiteDataStore = WKWebsiteDataStore.default()
         self.webView.configuration.processPool = GlobalData.processPool
+        self.webView.configuration.websiteDataStore.httpCookieStore.setCookie(HTTPCookie(properties: [.domain: ".baedalgeek.com", .path: "/", .name:"deviceInfo", .value: "ios|" + GlobalData.deviceInfo.appVer])!)
         self.webView.allowsBackForwardNavigationGestures = true
         self.webView.scrollView.bounces = false
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
+        self.webView.evaluateJavaScript("navigator.userAgent") { [weak self] (result, error) in
+            if self == nil || error != nil {
+                return
+            }
+            if let userAgent = result as? String {
+                self?.webView.customUserAgent = userAgent + " Version/12.1.2 Mobile/15E148"
+            }
+        }
         
         self.loadWebView(self.webView, pageUrl: GlobalData.startPage)
     }
@@ -103,6 +112,9 @@ class WKWebviewControl: NSObject, WKUIDelegate, WKNavigationDelegate, appFunctio
             openCustomApp(urlScheme: "mailto://", additional_info: url_elements[1])
             decisionHandler(.cancel)
         default:
+            if !url_elements[0].contains("http") {
+                UIApplication.shared.open(navigationAction.request.url!, options: [:], completionHandler: nil)
+            }
             decisionHandler(.allow)
         }
     }

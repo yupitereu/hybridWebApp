@@ -37,6 +37,12 @@ extension appFunctions {
         }
     }
     
+    func setDeviceInfo() {
+        GlobalData.deviceInfo.uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+        GlobalData.deviceInfo.systemVer = UIDevice.current.systemVersion
+        GlobalData.deviceInfo.appVer = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0"
+    }
+    
     // confirm 창.
     func confirm(title: String, message: String, cancelLabel: String, okLabel: String, cancelPressed: (()->Void)?, okPressed: (()->Void)?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
